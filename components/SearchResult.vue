@@ -43,13 +43,10 @@ export default {
         this.affinities = affinities;
     },
 
+    fetchOnServer: false,
+
     watch: {
-        character: async function(oldVal, newVal) {
-            let character, affinities;
-            
-            ({character, affinities} = await this.$http.$get(`/kanji-clustering-api/affinities?character=${this.character}`));
-            this.affinities = affinities;
-        }
+        character: '$fetch',
     },
 }
 </script>
