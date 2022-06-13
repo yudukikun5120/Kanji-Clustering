@@ -19,7 +19,7 @@
         <p v-else-if="$fetchState.error">
             例外が発生しました。<NuxtLink to="https://twitter.com/yudukikun5120">@yudukikun5120</NuxtLink>までご連絡ください。
         </p>
-        <div id="affinities" class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 2xl:grid-cols-3 gap-10 place-content-center">
+        <div id="affinities" class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 2xl:grid-cols-3 gap-10 place-content-center">
             <div v-for="affinity in affinities">
                 <KanjiCard :glyph=affinity reading="おなじ・くりかえし・のま" ucs="U+3006"></KanjiCard>
             </div>
