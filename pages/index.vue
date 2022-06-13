@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen bg-gray-50 p-20 grid grid-cols-1 lg:grid-cols-2 gap-10">
     <div class="mb-5 flex flex-col space-y-10">
-      <h1 class="font-serif text-9xl font-extrabold">
+      <h1 class="font-serif text-8xl font-extrabold">
         漢字<br>凝集<br>解析
       </h1>
       <div class="flex flex-col gap-y-6">
