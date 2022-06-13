@@ -39,7 +39,7 @@ export default {
     async fetch() {
         let character, affinities;
         
-        ({character, affinities} = await this.$http.$get(`https://kanji-clustering.herokuapp.com/affinities?character=${this.character}`));
+        ({character, affinities} = await this.$http.$get(`/kanji-clustering-api/affinities?character=${this.character}`));
         this.affinities = affinities;
     },
 
