@@ -45,7 +45,7 @@ export default {
     async copyKanjiToClickboard(kanji) {
       try {
         await this.$copyText(kanji);
-        this.$toast.show("クリップボードにコピーしました");
+        this.$toast.show("クリップボードにコピーしました", { duration: 3000 });
       } catch (e) {
         console.log(e);
       }
