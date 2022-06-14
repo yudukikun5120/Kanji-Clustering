@@ -57,7 +57,6 @@ export default {
     "@nuxt/http",
     "@nuxtjs/toast",
     "nuxt-clipboard",
-    "nuxt-material-design-icons",
   ],
 
   toast: {
