@@ -1,11 +1,11 @@
 <template>
   <!-- <div class="bg-white aspect-square flex justify-center items-center shadow-md py-20"><span class="text-6xl">㒤</span></div> -->
   <div
-    class="py-8 px-8 max-w-sm mx-auto border-2 rounded-xl space-y-2 xl:py-4 xl:flex xl:items-center xl:space-y-0 xl:space-x-14"
+    class="py-8 px-3 xl:px-8 max-w-sm mx-auto border-2 rounded-xl space-y-2 xl:py-4 xl:flex xl:items-center xl:space-y-0 xl:space-x-14"
   >
     <div class="flex flex-col">
       <span
-        class="inline-block align-middle mx-auto sh-24 rounded-full text-7xl font-serif xl:mx-0 xl:shrink-0 text-center"
+        class="inline-block align-middle mx-auto sh-24 rounded-full text-5xl font-serif xl:mx-0 xl:shrink-0 text-center"
       >
         {{ glyph }}
       </span>

@@ -21,7 +21,7 @@
     </p>
     <div
       id="affinities"
-      class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 2xl:grid-cols-3 gap-10 place-content-center"
+      class="grid grid-cols-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 2xl:grid-cols-3 gap-5 place-content-center"
     >
       <div v-for="affinity in affinities">
         <KanjiCard
