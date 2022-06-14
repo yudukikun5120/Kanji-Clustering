@@ -27,7 +27,6 @@
         <KanjiCard
           :glyph="affinity"
           reading="おなじ・くりかえし・のま"
-          ucs="U+3006"
         ></KanjiCard>
       </div>
     </div>

@@ -16,7 +16,7 @@
                     {{reading}}
                 </p> -->
         <p class="text-sm text-gray-500 font-medium font-mono">
-          {{ ucs }}
+          {{ UTF16CodeUnit }}
         </p>
       </div>
       <!-- <button class="px-4 py-1 text-sm text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2">
@@ -31,7 +31,14 @@ export default {
   props: {
     glyph: String,
     reading: String,
-    ucs: String,
   },
+
+  computed: {
+    UTF16CodeUnit() {
+      const codeUnit = this.glyph.charCodeAt().toString(16).toUpperCase();
+      return `U+${codeUnit}`;
+    }
+  },
+
 };
 </script>
