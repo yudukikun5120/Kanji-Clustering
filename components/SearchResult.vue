@@ -51,8 +51,6 @@ export default {
     this.affinities = affinities;
   },
 
-  fetchOnServer: false,
-
   watch: {
     character: "$fetch",
   },
