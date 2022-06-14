@@ -37,9 +37,24 @@
 export default {
   data() {
     return {
-      character: "鋳",
+      character: "",
       affinities: [],
     };
+  },
+
+  created() {
+    const getRandomIntInclusive = (min, max) => {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min + 1) + min);
+    };
+
+    const randomKanji = () => {
+      const codeUnit = getRandomIntInclusive(0x4E00, 0x9FFF);
+      return String.fromCodePoint(codeUnit);
+    };
+
+    this.character = randomKanji();
   },
 
   async fetch() {
