@@ -1,7 +1,7 @@
 <template>
   <!-- <div class="bg-white aspect-square flex justify-center items-center shadow-md py-20"><span class="text-6xl">㒤</span></div> -->
   <div
-    class="py-8 px-3 xl:px-8 max-w-sm mx-auto border-2 rounded-xl space-y-2 xl:py-4 xl:flex xl:items-center xl:space-y-0 xl:space-x-14"
+    class="py-8 px-3 xl:px-8 max-w-sm mx-auto bg-gray-100 rounded-xl space-y-2 xl:py-4 xl:flex xl:items-center xl:space-y-0 xl:space-x-14"
   >
     <div class="flex flex-col">
       <span
