@@ -9,12 +9,30 @@ export default {
       lang: "ja",
     },
     meta: [
-      { charset: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { hid: "description", name: "description", content: "" },
-      { name: "format-detection", content: "telephone=no" },
+      {
+        charset: "utf-8",
+      },
+      {
+        name: "viewport",
+        content: "width=device-width, initial-scale=1",
+      },
+      {
+        hid: "description",
+        name: "description",
+        content: "",
+      },
+      {
+        name: "format-detection",
+        content: "telephone=no",
+      },
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+    link: [
+      {
+        rel: "icon",
+        type: "image/x-icon",
+        href: "/favicon.ico",
+      },
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -35,7 +53,21 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ["@nuxt/http"],
+  modules: [
+    "@nuxt/http",
+    "@nuxtjs/toast",
+    "nuxt-clipboard",
+    "nuxt-material-design-icons",
+  ],
+
+  toast: {
+    position: "bottom-right",
+    theme: "outline",
+  },
+
+  clipboard: {
+    autoSetContainer: true,
+  },
 
   http: {
     proxy: true, // Can be also an object with default options

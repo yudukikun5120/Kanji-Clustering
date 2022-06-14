@@ -1,7 +1,8 @@
 <template>
   <!-- <div class="bg-white aspect-square flex justify-center items-center shadow-md py-20"><span class="text-6xl">㒤</span></div> -->
   <div
-    class="py-8 px-3 xl:px-8 max-w-sm mx-auto bg-gray-100 rounded-xl space-y-2 xl:py-4 xl:flex xl:items-center xl:space-y-0 xl:space-x-14"
+    class="py-8 px-3 xl:px-8 max-w-sm mx-auto bg-gray-100 hover:bg-gray-200 rounded-xl space-y-2 xl:py-4 xl:flex xl:items-center xl:space-y-0 xl:space-x-14 transition ease-in-out"
+    @click="copyKanjiToClickboard(glyph)"
   >
     <div class="flex flex-col">
       <span
@@ -37,8 +38,20 @@ export default {
     UTF16CodeUnit() {
       const codeUnit = this.glyph.charCodeAt().toString(16).toUpperCase();
       return `U+${codeUnit}`;
-    }
+    },
   },
 
+  methods: {
+    async copyKanjiToClickboard(kanji) {
+      try {
+        await this.$copyText(kanji);
+        this.$toast.show("クリップボードにコピーしました", {
+          icon: "content_copy",
+        });
+      } catch (e) {
+        console.log(e);
+      }
+    },
+  },
 };
 </script>
