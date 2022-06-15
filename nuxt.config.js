@@ -50,15 +50,11 @@ export default {
     "@nuxt/typescript-build",
     // https://go.nuxtjs.dev/tailwindcss
     "@nuxtjs/tailwindcss",
-    '@nuxtjs/pwa',
+    "@nuxtjs/pwa",
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [
-    "@nuxt/http",
-    "@nuxtjs/toast",
-    "nuxt-clipboard",
-  ],
+  modules: ["@nuxt/http", "@nuxtjs/toast", "nuxt-clipboard"],
 
   toast: {
     position: "bottom-right",

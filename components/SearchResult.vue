@@ -50,7 +50,7 @@ export default {
     };
 
     const randomKanji = () => {
-      const codeUnit = getRandomIntInclusive(0x4E00, 0x9FFF);
+      const codeUnit = getRandomIntInclusive(0x4e00, 0x9fff);
       return String.fromCodePoint(codeUnit);
     };
 
