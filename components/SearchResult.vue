@@ -37,8 +37,8 @@
 export default {
   data() {
     return {
-      character: "",
-      affinities: [],
+      character: String,
+      affinities: Array,
     };
   },
 
@@ -58,12 +58,15 @@ export default {
   },
 
   async fetch() {
-    let character, affinities;
-
-    ({ character, affinities } = await this.$http.$get(
-      `/kanji-clustering-api/affinities?character=${this.character}`
-    ));
-    this.affinities = affinities;
+    try {
+      const res = await this.$http.$get(
+        `/kanji-clustering-api/affinities?character=${this.character}`
+      );
+      const { affinities } = res;
+      this.affinities = affinities;
+    } catch (e) {
+      console.error(e);
+    }
   },
 
   watch: {
