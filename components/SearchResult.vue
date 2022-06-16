@@ -13,8 +13,7 @@
       類似した<br />
       漢字
     </h2>
-    <p v-if="$fetchState.pending">検知中…</p>
-    <p v-else-if="$fetchState.error">
+    <p v-if="$fetchState.error">
       例外が発生しました。<NuxtLink to="https://twitter.com/yudukikun5120"
         >@yudukikun5120</NuxtLink
       >までご連絡ください。
@@ -22,6 +21,7 @@
     <div
       id="affinities"
       class="grid grid-cols-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 2xl:grid-cols-3 gap-5 place-content-center"
+      v-bind:class="{ 'animate-pulse': $fetchState.pending }"
     >
       <div v-for="affinity in affinities">
         <KanjiCard
@@ -34,6 +34,7 @@
 </template>
 
 <script>
+import KanjiCard from "./KanjiCard.vue";
 export default {
   data() {
     return {
@@ -41,22 +42,18 @@ export default {
       affinities: Array,
     };
   },
-
   created() {
     const getRandomIntInclusive = (min, max) => {
       min = Math.ceil(min);
       max = Math.floor(max);
       return Math.floor(Math.random() * (max - min + 1) + min);
     };
-
     const randomKanji = () => {
       const codeUnit = getRandomIntInclusive(0x4e00, 0x9fff);
       return String.fromCodePoint(codeUnit);
     };
-
     this.character = randomKanji();
   },
-
   async fetch() {
     try {
       const res = await this.$http.$get(
@@ -68,9 +65,9 @@ export default {
       console.error(e);
     }
   },
-
   watch: {
     character: "$fetch",
   },
+  components: { KanjiCard },
 };
 </script>
