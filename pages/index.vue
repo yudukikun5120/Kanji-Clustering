@@ -31,10 +31,12 @@
 
         <address>
           <p class="text-sm text-gray-700">
-            Made with ❤️ by <a href="https://yudukikun5120.me" class="font-semibold">@yudukikun5120</a>
+            Made with ❤️ by
+            <a href="https://yudukikun5120.me" class="font-semibold"
+              >@yudukikun5120</a
+            >
           </p>
         </address>
-
       </div>
     </div>
 

@@ -43,16 +43,20 @@ export default {
     };
   },
   created() {
-    const getRandomIntInclusive = (min, max) => {
-      min = Math.ceil(min);
-      max = Math.floor(max);
-      return Math.floor(Math.random() * (max - min + 1) + min);
-    };
-    const randomKanji = () => {
-      const codeUnit = getRandomIntInclusive(0x4e00, 0x9fff);
-      return String.fromCodePoint(codeUnit);
-    };
-    this.character = randomKanji();
+    if (this.$route.query.character) {
+      this.character = this.$route.query.character;
+    } else {
+      const getRandomIntInclusive = (min, max) => {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1) + min);
+      };
+      const randomKanji = () => {
+        const codeUnit = getRandomIntInclusive(0x4e00, 0x9fff);
+        return String.fromCodePoint(codeUnit);
+      };
+      this.character = randomKanji();
+    }
   },
   async fetch() {
     try {
