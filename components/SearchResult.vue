@@ -1,33 +1,39 @@
 <template>
   <div class="flex flex-col gap-y-8">
-    <div class="">
-      <h2 class="font-serif text-5xl"></h2>
-      <input
-        v-model="character"
-        class="w-full h-full bg-white border-2 rounded-full px-10 align-center pt-6 pb-8 my-4 text-2xl font-serif"
-        placeholder="漢字を入力"
-      />
-    </div>
-
     <h2 class="font-serif text-5xl font-extrabold">
       類似した<br />
       漢字
     </h2>
-    <p v-if="$fetchState.error">
-      例外が発生しました。<NuxtLink to="https://twitter.com/yudukikun5120"
-        >@yudukikun5120</NuxtLink
-      >までご連絡ください。
-    </p>
-    <div
-      id="affinities"
-      class="grid grid-cols-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 2xl:grid-cols-3 gap-5 place-content-center"
-      v-bind:class="{ 'animate-pulse': $fetchState.pending }"
-    >
-      <div v-for="affinity in affinities">
-        <KanjiCard
-          :glyph="affinity"
-          reading="おなじ・くりかえし・のま"
-        ></KanjiCard>
+
+    <div class="flex flex-col gap-y-6">
+      <div class="flex rounded border">
+        <button class="bg-gray-100 px-4" @click="copyURLToClickboard()">🔗</button>
+        <input
+          v-model="character"
+          type="search"
+          maxlength=1
+          pattern="^[一-龠]?$"
+          class="w-full bg-white px-5 align-center pt-3 pb-3 text-xl font-serif"
+          placeholder="漢字を入力"
+        />
+      </div>
+      <p v-if="$fetchState.error">
+        例外が発生しました。<NuxtLink to="https://twitter.com/yudukikun5120"
+          >@yudukikun5120</NuxtLink
+        >までご連絡ください。
+      </p>
+
+      <div
+        id="affinities"
+        class="grid grid-cols-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 2xl:grid-cols-3 gap-5 place-content-center"
+        v-bind:class="{ 'animate-pulse': $fetchState.pending }"
+      >
+        <div v-for="affinity in affinities">
+          <KanjiCard
+            :glyph="affinity"
+            reading="おなじ・くりかえし・のま"
+          ></KanjiCard>
+        </div>
       </div>
     </div>
   </div>
@@ -57,6 +63,11 @@ export default {
       };
       this.character = randomKanji();
     }
+  },
+  methods: {
+    copyURLToClickboard() {
+        this.$copyText(`${location.origin}?character=${this.character}`);
+    },
   },
   async fetch() {
     try {
