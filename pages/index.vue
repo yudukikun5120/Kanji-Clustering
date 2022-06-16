@@ -20,13 +20,6 @@
           k-平均法でJIS第一水準の漢字のクラスタリングを行い，適合推定器を作成しました。
         </p>
 
-        <h3 class="font-serif text-3xl font-extrabold -mb-2">著作</h3>
-        <address>
-          <a href="https://yudukikun5120.me" class="bg-blue-100"
-            >著作者のウェブサイト</a
-          >
-        </address>
-
         <h3 class="font-serif text-3xl font-extrabold -mb-2">広告</h3>
         <p>
           漢字検定を勉強されている方向けの<NuxtLink
@@ -35,6 +28,13 @@
             >他のサービス</NuxtLink
           >も提供しています。
         </p>
+
+        <address>
+          <p class="text-sm text-gray-700">
+            Made with ❤️ by <a href="https://yudukikun5120.me" class="font-semibold">@yudukikun5120</a>
+          </p>
+        </address>
+
       </div>
     </div>
 
