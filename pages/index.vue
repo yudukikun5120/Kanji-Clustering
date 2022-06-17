@@ -13,13 +13,16 @@
 
         <h3 class="font-serif text-3xl font-extrabold -mb-2">概要</h3>
         <p>
-          <a
-            class="bg-blue-100"
-            href="https://ja.wikipedia.org/wiki/K平均法"
+          <a class="bg-blue-100" href="https://ja.wikipedia.org/wiki/K平均法"
             ><span v-katex="'\k'"></span>-平均法</a
-          >（<span v-katex="'\k=100'"></span> に設定）を用い，JIS第一水準に分類された2965字種をクラスタリングし，類似する漢字を検知します。
-          <br>
-          漢字凝集解析はAPIを提供しています。<a href="https://kanji-clustering.herokuapp.com/docs" class="bg-blue-100">ドキュメント</a>をご覧ください。
+          >（<span v-katex="'\k=100'"></span>
+          に設定）を用い，JIS第一水準に分類された2965字種をクラスタリングし，類似する漢字を検知します。
+          <br />
+          漢字凝集解析はAPIを提供しています。<a
+            href="https://kanji-clustering.herokuapp.com/docs"
+            class="bg-blue-100"
+            >ドキュメント</a
+          >をご覧ください。
         </p>
 
         <h3 class="font-serif text-3xl font-extrabold -mb-2">広告</h3>

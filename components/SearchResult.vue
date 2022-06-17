@@ -7,11 +7,13 @@
 
     <div class="flex flex-col gap-y-6">
       <div class="flex rounded border">
-        <button class="bg-gray-100 px-4" @click="copyURLToClickboard()">🔗</button>
+        <button class="bg-gray-100 px-4" @click="copyURLToClickboard()">
+          🔗
+        </button>
         <input
           v-model="character"
           type="search"
-          maxlength=1
+          maxlength="1"
           pattern="^[一-龠]?$"
           class="w-full bg-white px-5 align-center pt-3 pb-3 text-xl font-serif"
           placeholder="漢字を入力"
@@ -66,7 +68,7 @@ export default {
   },
   methods: {
     copyURLToClickboard() {
-        this.$copyText(`${location.origin}?character=${this.character}`);
+      this.$copyText(`${location.origin}?character=${this.character}`);
     },
   },
   async fetch() {
