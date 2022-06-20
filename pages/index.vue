@@ -16,9 +16,9 @@
           <a class="bg-blue-100" href="https://ja.wikipedia.org/wiki/K平均法"
             ><span v-katex="'\k'"></span>-平均法</a
           >（<span v-katex="'\k=100'"></span>
-          に設定）を用い，JIS第一水準に分類された2965字種をクラスタリングし，類似する漢字を検知します。
+          に設定）を用い，ＪＩＳ第１水準および第２水準に分類された6355字種をクラスタリングし，類似する漢字を検知します。
           <br />
-          漢字凝集解析はAPIを提供しています。<a
+          漢字凝集解析はＡＰＩを提供しています。<a
             href="https://kanji-clustering.herokuapp.com/docs"
             class="bg-blue-100"
             >ドキュメント</a

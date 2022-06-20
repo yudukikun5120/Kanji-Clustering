@@ -74,7 +74,7 @@ export default {
   async fetch() {
     try {
       const res = await this.$http.$get(
-        `/kanji-clustering-api/affinities?character=${this.character}`
+        `/kanji-clustering-api/affinities?character=${this.character}&sets=jis_level_1+jis_level_2`
       );
       const { affinities } = res;
       this.affinities = affinities;
