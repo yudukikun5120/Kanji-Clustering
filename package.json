@@ -1,5 +1,6 @@
 {
-  "name": "kanji-clustering",
+  "name": "kanji-clustering-analysis",
+  "description": "Detect similar kanji characters with k-means method.",
   "version": "1.0.0",
   "private": true,
   "scripts": {
