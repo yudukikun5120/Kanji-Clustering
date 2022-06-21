@@ -53,12 +53,6 @@ export default {
     "@nuxtjs/pwa",
   ],
 
-  pwa: {
-    manifest: {
-      lang: 'ja',
-    },
-  },
-
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: ["@nuxt/http", "@nuxtjs/toast", "nuxt-clipboard"],
 
