@@ -58,6 +58,9 @@ export default {
       name: 'Kanji Clustering Analysis',
       lang: 'ja',
     },
+    workbox: {
+      dev: true,
+    },
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules
