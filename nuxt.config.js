@@ -19,7 +19,7 @@ export default {
       {
         hid: "description",
         name: "description",
-        content: "",
+        content: "Detect similar kanji characters with k-means method.",
       },
       {
         name: "format-detection",
@@ -52,6 +52,13 @@ export default {
     "@nuxtjs/tailwindcss",
     "@nuxtjs/pwa",
   ],
+
+  pwa: {
+    manifest: {
+      name: 'Kanji Clustering Analysis',
+      lang: 'ja',
+    },
+  },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: ["@nuxt/http", "@nuxtjs/toast", "nuxt-clipboard"],
