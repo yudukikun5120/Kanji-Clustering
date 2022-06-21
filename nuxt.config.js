@@ -55,6 +55,7 @@ export default {
 
   pwa: {
     manifest: {
+      name: 'Kanji Clustering Analysis',
       lang: 'ja',
     },
   },
