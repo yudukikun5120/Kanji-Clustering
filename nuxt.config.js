@@ -51,6 +51,7 @@ export default {
     // https://go.nuxtjs.dev/tailwindcss
     "@nuxtjs/tailwindcss",
     "@nuxtjs/pwa",
+    "nuxt-headway",
   ],
 
   pwa: {
@@ -61,6 +62,10 @@ export default {
     workbox: {
       dev: true,
     },
+  },
+
+  headway: {
+    account: '7e88Ex'
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules

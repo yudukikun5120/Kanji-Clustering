@@ -2,6 +2,7 @@
   <div
     class="min-h-screen bg-gray-50 p-10 md:p-20 grid grid-cols-1 lg:grid-cols-2 gap-10"
   >
+    <div v-headway v-headway-trigger class="fixed bottom-10 rounded bg-black opacity-50 hover:opacity-100 ease-in-out duration-300"></div>
     <div class="mb-5 flex flex-col space-y-10">
       <h1 class="font-serif text-8xl font-extrabold">
         漢字<br />凝集<br />解析
