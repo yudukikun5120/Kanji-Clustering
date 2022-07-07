@@ -1,13 +1,12 @@
 <template>
   <div class="flex flex-col gap-y-8">
-    <h2 class="font-serif text-5xl font-extrabold">
-      類似した<br />
-      漢字
+    <h2 class="text-4xl font-extrabold">
+      類似した漢字
     </h2>
 
     <div class="flex flex-col gap-y-6">
-      <div class="flex rounded border">
-        <button class="bg-gray-100 px-4" @click="copyURLToClickboard()">
+      <div class="flex border dark:border-gray-700">
+        <button class="bg-gray-100 dark:bg-gray-700 px-4" @click="copyURLToClickboard()">
           🔗
         </button>
         <input
@@ -15,7 +14,7 @@
           type="search"
           maxlength="1"
           pattern="^[一-龠]?$"
-          class="w-full bg-white px-5 align-center pt-3 pb-3 text-xl font-serif"
+          class="w-full bg-white dark:bg-gray-800 px-5 pt-3 pb-3 text-xl"
           placeholder="漢字を入力"
         />
       </div>
