@@ -6,7 +6,7 @@
 
     <div class="flex flex-col gap-y-6">
       <div class="flex border dark:border-gray-700">
-        <button class="bg-gray-100 dark:bg-gray-700 px-4" @click="copyURLToClickboard()">
+        <button class="bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition ease-in-out px-4" @click="copyURLToClickboard()">
           🔗
         </button>
         <input

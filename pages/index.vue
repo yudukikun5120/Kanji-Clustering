@@ -2,7 +2,6 @@
   <div
     class="min-h-screen bg-gray-50 dark:bg-gray-900 dark:text-white p-10 md:p-20 grid grid-cols-1 lg:grid-cols-2 gap-10"
   >
-    <div v-headway v-headway-trigger class="fixed bottom-10 rounded bg-black opacity-50 hover:opacity-100 ease-in-out duration-300"></div>
     <div class="mb-5 flex flex-col space-y-10">
       <h1 class="text-8xl font-extrabold">
         漢字<br />凝集<br />解析
@@ -11,6 +10,7 @@
         <p>
           漢字凝集解析では，入力した漢字に類似する漢字を検知することができます。
         </p>
+        <span v-headway v-headway-trigger></span>
 
         <h3 class="text-3xl font-extrabold -mb-2">概要</h3>
         <p>
