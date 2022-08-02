@@ -39,7 +39,7 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: ["~plugins/vue-js-modal.js"],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -56,8 +56,8 @@ export default {
 
   pwa: {
     manifest: {
-      name: 'Kanji Clustering Analysis',
-      lang: 'ja',
+      name: "Kanji Clustering Analysis",
+      lang: "ja",
     },
     workbox: {
       dev: true,
@@ -65,7 +65,7 @@ export default {
   },
 
   headway: {
-    account: '7e88Ex'
+    account: "7e88Ex",
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules

@@ -19,6 +19,7 @@
     "nuxt-clipboard": "^0.0.7",
     "nuxt-headway": "^1.0.0",
     "vue": "^2.6.14",
+    "vue-js-modal": "^2.0.1",
     "vue-katex": "^0.5.0",
     "vue-server-renderer": "^2.6.14",
     "vue-template-compiler": "^2.6.14",
