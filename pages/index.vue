@@ -1,19 +1,6 @@
 <template>
   <div>
-    <modal name="app-usage" height="auto" class="rounded shadow">
-      <iframe 
-      src="https://scribehow.com/embed/__oSB8UpncTSyyeFBOR4g6AA" 
-      width="100%" 
-      height="480" 
-      allowfullscreen 
-      frameborder="0"
-      >
-      </iframe>
-      <button @click="hide" class="p-4 w-full h-auto block hover:bg-gray-200 focus:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-white transition ease-in-out">
-        閉じる
-      </button>
-    </modal>
-  
+    <Tutorial></Tutorial>
     <div
       class="min-h-screen bg-gray-50 dark:bg-gray-900 dark:text-white p-10 md:p-20 grid grid-cols-1 lg:grid-cols-2 gap-10"
     >
@@ -92,6 +79,7 @@ import VueKatex from 'vue-katex';
 import 'katex/dist/katex.min.css';
 import KanjiCard from "~/components/KanjiCard.vue";
 import SearchResult from "~/components/SearchResult.vue";
+import Tutorial from "../components/Tutorial.vue";
 
 Vue.use(VueKatex, {
   globalOptions: {
@@ -101,13 +89,10 @@ Vue.use(VueKatex, {
 
 export default Vue.extend({
   name: "IndexPage",
-  components: { KanjiCard, SearchResult },
+  components: { KanjiCard, SearchResult, Tutorial, Tutorial },
   methods: {
     show() {
       this.$modal.show("app-usage");
-    },
-    hide() {
-      this.$modal.hide("app-usage");
     }
   }
 });
