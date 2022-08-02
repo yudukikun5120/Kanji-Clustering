@@ -16,5 +16,3 @@
         </button>
     </modal>
 </template>
-
-<s
