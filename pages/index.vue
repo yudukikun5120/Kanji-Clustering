@@ -2,8 +2,7 @@
   <div>
     <Tutorial></Tutorial>
     <div
-      class="min-h-screen bg-gray-50 dark:bg-gray-900 dark:text-white p-10 md:p-20 grid grid-cols-1 lg:grid-cols-2 gap-10"
-    >
+      class="min-h-screen bg-gray-50 dark:bg-gray-900 dark:text-white p-10 md:p-20 grid grid-cols-1 lg:grid-cols-2 gap-10">
       <div class="mb-5 flex flex-col space-y-10">
         <h1 class="text-8xl font-extrabold">
           漢字<br />凝集<br />解析
@@ -13,54 +12,35 @@
             漢字凝集解析では，入力した漢字に類似する漢字を検知することができます。
           </p>
           <!-- <span v-headway v-headway-trigger></span> -->
-          
-          <button @click="show" class="text-left font-semibold bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 transition ease-in-out p-5">このサイトの使い方を見る ＞
+
+          <button @click="show"
+            class="text-left font-semibold bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 transition ease-in-out p-5">このサイトの使い方を見る
+            ＞
           </button>
 
           <hr class="border-gray-200 dark:border-gray-800">
 
           <h3 class="text-3xl font-extrabold -mb-2">概要</h3>
           <p>
-            <a class="bg-blue-100 dark:bg-gray-600" href="https://ja.wikipedia.org/wiki/K平均法"
-              ><span v-katex="'\k'"></span>-平均法</a
-            >（<span v-katex="'\k=100'"></span>
+            <a class="bg-blue-100 dark:bg-gray-600" href="https://ja.wikipedia.org/wiki/K平均法"><span
+                v-katex="'\k'"></span>-平均法</a>（<span v-katex="'\k=100'"></span>
             に設定）を用い，ＪＩＳ第１水準および第２水準に分類された6355字種をクラスタリングし，類似する漢字を検知します。
             <br />
-            漢字凝集解析はＡＰＩを提供しています。<a
-              href="https://kanji-clustering.herokuapp.com/docs"
-              class="bg-blue-100 dark:bg-gray-600"
-              >ドキュメント</a
-            >をご覧ください。
+            漢字凝集解析はＡＰＩを提供しています。<a href="https://kanji-clustering.herokuapp.com/docs"
+              class="bg-blue-100 dark:bg-gray-600">ドキュメント</a>をご覧ください。
           </p>
 
           <h3 class="text-3xl font-extrabold -mb-2">広告</h3>
           <p>
-            漢字検定を勉強されている方向けに，<a
-              class="bg-blue-100 dark:bg-gray-600"
-              href="https://yudukikun5120.notion.site/1f06cf758050421eadf9bb07a250f63b"
-              >クイズアプリや電子書籍</a
-            >を提供しています。
+            漢字検定を勉強されている方向けに，<a class="bg-blue-100 dark:bg-gray-600"
+              href="https://yudukikun5120.notion.site/1f06cf758050421eadf9bb07a250f63b">クイズアプリや電子書籍</a>を提供しています。
           </p>
 
-          <a
-            href="https://www.producthunt.com/posts/kanji-clustering-analysis?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-kanji&#0045;clustering&#0045;analysis"
-            target="_blank"
-            ><img
+          <a href="https://www.producthunt.com/posts/kanji-clustering-analysis?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-kanji&#0045;clustering&#0045;analysis"
+            target="_blank"><img
               src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=349793&theme=neutral"
               alt="Kanji&#0032;Clustering&#0032;Analysis - Detect&#0032;similar&#0032;kanji&#0032;characters&#0032;with&#0032;k&#0045;means&#0032;method | Product Hunt"
-              style="width: 250px; height: 54px"
-              width="250"
-              height="54"
-          /></a>
-
-          <address>
-            <p class="text-sm text-gray-700 dark:text-gray-500">
-              Made with ❤️ by
-              <a href="https://yudukikun5120.me" class="font-semibold"
-                >@yudukikun5120</a
-              >
-            </p>
-          </address>
+              style="width: 250px; height: 54px" width="250" height="54" /></a>
         </div>
       </div>
 
@@ -70,6 +50,7 @@
         </div>
       </div>
     </div>
+    <Footer></Footer>
   </div>
 </template>
 
@@ -80,6 +61,7 @@ import 'katex/dist/katex.min.css';
 import KanjiCard from "~/components/KanjiCard.vue";
 import SearchResult from "~/components/SearchResult.vue";
 import Tutorial from "../components/Tutorial.vue";
+import Footer from "~/components/Footer.vue";
 
 Vue.use(VueKatex, {
   globalOptions: {
@@ -89,7 +71,7 @@ Vue.use(VueKatex, {
 
 export default Vue.extend({
   name: "IndexPage",
-  components: { KanjiCard, SearchResult, Tutorial, Tutorial },
+  components: { KanjiCard, SearchResult, Tutorial, Tutorial, Footer },
   methods: {
     show() {
       this.$modal.show("app-usage");
