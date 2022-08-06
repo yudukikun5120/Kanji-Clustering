@@ -50,7 +50,7 @@ Vue.use(VueKatex, {
 });
 
 export default Vue.extend({
-    name: 'Readme',
+    name: 'Sidebar',
     components: {
         ProductHuntBadge,
     },

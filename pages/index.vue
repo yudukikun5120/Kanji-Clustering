@@ -3,7 +3,7 @@
     <Tutorial></Tutorial>
     <div
       class="min-h-screen bg-gray-50 dark:bg-gray-900 dark:text-white p-10 md:p-20 grid grid-cols-1 lg:grid-cols-2 gap-10">
-      <Readme></Readme>
+      <Sidebar></Sidebar>
       <div class="flex flex-col">
         <div>
           <SearchResult></SearchResult>
@@ -20,10 +20,10 @@ import KanjiCard from "~/components/KanjiCard.vue";
 import SearchResult from "~/components/SearchResult.vue";
 import Tutorial from "../components/Tutorial.vue";
 import Footer from "~/components/Footer.vue";
-import Readme from "../components/Readme.vue";
+import Sidebar from "../components/Sidebar.vue";
 
 export default Vue.extend({
   name: "IndexPage",
-  components: { KanjiCard, SearchResult, Tutorial, Tutorial, Footer, Readme },
+  components: { KanjiCard, SearchResult, Tutorial, Tutorial, Footer, Sidebar },
 });
 </script>
