@@ -24,6 +24,6 @@ import Sidebar from "../components/Sidebar.vue";
 
 export default Vue.extend({
   name: "IndexPage",
-  components: { KanjiCard, SearchResult, Tutorial, Tutorial, Footer, Sidebar },
+  components: { KanjiCard, SearchResult, Tutorial, Footer, Sidebar },
 });
 </script>
