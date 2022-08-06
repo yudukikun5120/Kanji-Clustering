@@ -32,7 +32,7 @@
                     href="https://yudukikun5120.notion.site/1f06cf758050421eadf9bb07a250f63b">クイズアプリや電子書籍</a>を提供しています。
             </p>
 
-            <ProductHuntBadge></ProductHuntBadge>
+            <adsbygoogle />
         </div>
     </div>
 </template>
@@ -40,7 +40,6 @@
 <script>
 import Vue from 'vue';
 import VueKatex from 'vue-katex';
-import ProductHuntBadge from "~/components/ProductHuntBadge.vue";
 import 'katex/dist/katex.min.css';
 
 Vue.use(VueKatex, {
@@ -51,9 +50,6 @@ Vue.use(VueKatex, {
 
 export default Vue.extend({
     name: 'Sidebar',
-    components: {
-        ProductHuntBadge,
-    },
     methods: {
         show() {
             this.$modal.show("app-usage");
