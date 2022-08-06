@@ -31,8 +31,6 @@
                 漢字検定を勉強されている方向けに，<a class="bg-blue-100 dark:bg-gray-600"
                     href="https://yudukikun5120.notion.site/1f06cf758050421eadf9bb07a250f63b">クイズアプリや電子書籍</a>を提供しています。
             </p>
-
-            <adsbygoogle />
         </div>
     </div>
 </template>
