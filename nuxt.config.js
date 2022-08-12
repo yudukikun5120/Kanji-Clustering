@@ -8,8 +8,7 @@ export default {
     htmlAttrs: {
       lang: "ja",
     },
-    meta: [
-      {
+    meta: [{
         charset: "utf-8",
       },
       {
@@ -26,20 +25,16 @@ export default {
         content: "telephone=no",
       },
     ],
-    link: [
-      {
-        rel: "icon",
-        type: "image/x-icon",
-        href: "/favicon.ico",
-      },
-    ],
-    script: [
-      {
-        async: true,
-        src: `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.GOOGLE_ADSENSE_ID}`,
-        crossorigin: "anonymous",
-      },
-    ],
+    link: [{
+      rel: "icon",
+      type: "image/x-icon",
+      href: "/favicon.ico",
+    }, ],
+    script: [{
+      async: true,
+      src: `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.GOOGLE_ADSENSE_ID}`,
+      crossorigin: "anonymous",
+    }, ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -59,6 +54,12 @@ export default {
     "@nuxtjs/tailwindcss",
     "@nuxtjs/pwa",
     "nuxt-headway",
+    [
+      '@nuxtjs/google-gtag', {
+        id: process.env.GOOGLE_ANALYTICS_ID,
+        debug: true
+      }
+    ]
   ],
 
   pwa: {
