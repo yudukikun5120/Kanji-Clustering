@@ -4,7 +4,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "漢字凝集解析",
+    title: "漢字凝集解析｜類似の漢字をクラスタ解析で検索",
     htmlAttrs: {
       lang: "ja",
     },
