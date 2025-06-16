@@ -7558,11 +7558,6 @@ nuxt-clipboard@^0.0.7:
   dependencies:
     vue-clipboard2 "^0.3.3"
 
-nuxt-headway@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/nuxt-headway/-/nuxt-headway-1.0.0.tgz#7821c9029f6f2c55728a4d6e5e84870757ed6178"
-  integrity sha512-qKLhuvt6hez85ZHxLL7wRnH5a7OMkWq1XeLuXQqgGWSrVIaFY7kZi99VQ3Qzn44Bfp/BdGx2I4iqCMWcwh3O8A==
-
 nuxt@^2.15.8:
   version "2.15.8"
   resolved "https://registry.yarnpkg.com/nuxt/-/nuxt-2.15.8.tgz#946cba46bdaaf0e3918aa27fd9ea0fed8ed303b0"

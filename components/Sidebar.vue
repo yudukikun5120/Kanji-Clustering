@@ -7,7 +7,6 @@
             <p>
                 漢字凝集解析では，入力した漢字に類似する漢字を検知することができます。
             </p>
-            <!-- <span v-headway v-headway-trigger></span> -->
 
             <button @click="show"
                 class="text-left font-semibold bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 transition ease-in-out p-5">このサイトの使い方を見る

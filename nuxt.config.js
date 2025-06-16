@@ -53,7 +53,6 @@ export default {
     // https://go.nuxtjs.dev/tailwindcss
     "@nuxtjs/tailwindcss",
     "@nuxtjs/pwa",
-    "nuxt-headway",
     [
       '@nuxtjs/google-gtag', {
         id: process.env.GOOGLE_ANALYTICS_ID,
@@ -72,9 +71,6 @@ export default {
     },
   },
 
-  headway: {
-    account: "7e88Ex",
-  },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: ["@nuxt/http", "@nuxtjs/toast", "nuxt-clipboard"],
