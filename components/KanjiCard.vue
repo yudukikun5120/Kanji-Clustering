@@ -9,7 +9,7 @@
     <div class="flex flex-col">
       <span
         class="inline-block align-middle mx-auto sh-24 rounded-full text-5xl xl:mx-0 xl:shrink-0 text-center"
-        v-bind:class="{ 'animate-spin': isSpinning() }"
+        :class="{ 'animate-spin': isSpinning() }"
       >
         {{ glyph }}
       </span>
@@ -21,7 +21,7 @@
                         {{reading}}
                     </p> -->
         <p class="text-sm text-gray-500 font-medium font-mono">
-          {{ UTF16CodeUnit }}
+          {{ unicodeCodePoint }}
         </p>
       </div>
     </div>
@@ -35,43 +35,51 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    glyph: String,
-    reading: String,
+<script setup>
+const props = defineProps({
+  glyph: {
+    type: String,
+    default: ''
   },
+  reading: {
+    type: String,
+    default: ''
+  }
+})
 
-  data() {
-    return {
-      copyHoverFlag: false,
-    };
-  },
+const route = useRoute()
+const copyHoverFlag = ref(false)
 
-  computed: {
-    UTF16CodeUnit() {
-      const codeUnit = this.glyph.charCodeAt().toString(16).toUpperCase();
-      return `U+${codeUnit}`;
-    },
-  },
+const unicodeCodePoint = computed(() => {
+  const codePoint = props.glyph.codePointAt(0)
+  return codePoint === undefined ? '' : `U+${codePoint.toString(16).toUpperCase()}`
+})
 
-  methods: {
-    async copyKanjiToClickboard(kanji) {
-      try {
-        await this.$copyText(kanji);
-        this.$toast.show("クリップボードにコピーしました", { duration: 3000 });
-      } catch (e) {
-        console.log(e);
-      }
-    },
+const toast = useToast()
+const { copy } = useClipboard({ legacy: true })
 
-    isSpinning() {
-      return this.$route.query.spin === "true";
-    },
+const copyKanjiToClickboard = async (kanji) => {
+  try {
+    await copy(kanji)
+    toast.add({
+      title: 'コピー完了',
+      description: `漢字「${kanji}」がクリップボードにコピーされました`,
+      color: 'success'
+    })
+  } catch {
+    toast.add({
+      title: 'コピー失敗',
+      description: 'コピーに失敗しました',
+      color: 'error'
+    })
+  }
+}
 
-    setHoverFlag() {
-      this.copyHoverFlag = !this.copyHoverFlag;
-    },
-  },
-};
+const isSpinning = () => {
+  return route.query.spin === 'true'
+}
+
+const setHoverFlag = () => {
+  copyHoverFlag.value = !copyHoverFlag.value
+}
 </script>

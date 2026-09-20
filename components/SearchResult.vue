@@ -16,74 +16,77 @@
           pattern="^[一-龠]?$"
           class="w-full bg-white dark:bg-gray-800 px-5 pt-3 pb-3 text-xl"
           placeholder="漢字を入力"
-        />
+        >
       </div>
-      <p v-if="$fetchState.error">
-        例外が発生しました。<NuxtLink to="https://twitter.com/yudukikun5120"
-          >@yudukikun5120</NuxtLink
-        >までご連絡ください。
+      <p v-if="error" class="text-red-600 bg-red-50 p-4 rounded">
+        <strong>API接続エラー:</strong>
+        漢字クラスタリングAPIに接続できません。しばらくしてからお試しください。
+        <br>
+        <small>エラーが続く場合は<NuxtLink to="https://twitter.com/yudukikun5120" class="underline">@yudukikun5120</NuxtLink>までご連絡ください。</small>
       </p>
 
       <div
         id="affinities"
         class="grid grid-cols-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 2xl:grid-cols-3 gap-5 place-content-center"
-        v-bind:class="{ 'animate-pulse': $fetchState.pending }"
+        :class="{ 'animate-pulse': pending }"
       >
-        <div v-for="affinity in affinities">
+        <div v-for="(affinity, index) in affinities" :key="index">
           <KanjiCard
             :glyph="affinity"
             reading="おなじ・くりかえし・のま"
-          ></KanjiCard>
+          />
         </div>
       </div>
     </div>
   </div>
 </template>
 
-<script>
-import KanjiCard from "./KanjiCard.vue";
-export default {
-  data() {
-    return {
-      character: String,
-      affinities: Array,
-    };
-  },
-  created() {
-    if (this.$route.query.character) {
-      this.character = this.$route.query.character;
-    } else {
-      const getRandomIntInclusive = (min, max) => {
-        min = Math.ceil(min);
-        max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min + 1) + min);
-      };
-      const randomKanji = () => {
-        const codeUnit = getRandomIntInclusive(0x4e00, 0x9fff);
-        return String.fromCodePoint(codeUnit);
-      };
-      this.character = randomKanji();
-    }
-  },
-  methods: {
-    copyURLToClickboard() {
-      this.$copyText(`${location.origin}?character=${this.character}`);
-    },
-  },
-  async fetch() {
-    try {
-      const res = await this.$http.$get(
-        `/kanji-clustering-api/affinities?character=${this.character}&sets=jis_level_1+jis_level_2`
-      );
-      const { affinities } = res;
-      this.affinities = affinities;
-    } catch (e) {
-      console.error(e);
-    }
-  },
-  watch: {
-    character: "$fetch",
-  },
-  components: { KanjiCard },
-};
+<script setup>
+const route = useRoute()
+const getRandomIntInclusive = (min, max) => {
+  const minimum = Math.ceil(min)
+  const maximum = Math.floor(max)
+  return Math.floor(Math.random() * (maximum - minimum + 1) + minimum)
+}
+
+const randomKanji = () => String.fromCodePoint(getRandomIntInclusive(0x4e00, 0x9fff))
+const queryCharacter = Array.isArray(route.query.character)
+  ? route.query.character[0]
+  : route.query.character
+const character = ref(queryCharacter || randomKanji())
+const debouncedCharacter = refDebounced(character, 250)
+
+const { data: affinities, pending, error } = await useFetch('/kanji-clustering-api/affinities', {
+  query: computed(() => ({
+    character: debouncedCharacter.value,
+    sets: 'jis_level_1+jis_level_2'
+  })),
+  transform: (data) => data?.affinities || [],
+  server: false,
+  default: () => [],
+  retry: 2,
+  retryDelay: 1000
+})
+
+const toast = useToast()
+const { copy } = useClipboard({ legacy: true })
+
+const copyURLToClickboard = async () => {
+  try {
+    const url = new URL('/', window.location.origin)
+    url.searchParams.set('character', character.value)
+    await copy(url.toString())
+    toast.add({
+      title: 'コピー完了',
+      description: 'URLがクリップボードにコピーされました',
+      color: 'success'
+    })
+  } catch {
+    toast.add({
+      title: 'コピー失敗',
+      description: 'URLのコピーに失敗しました',
+      color: 'error'
+    })
+  }
+}
 </script>

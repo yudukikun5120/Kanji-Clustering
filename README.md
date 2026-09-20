@@ -1,68 +1,55 @@
-# kanji-clustering
+# 漢字凝集解析
 
-## Build Setup
+入力した漢字に類似する漢字を、k-meansクラスタリングの結果から検索するNuxt 3アプリケーションです。JIS第1水準・第2水準の6355字種を対象にしています。
+
+## 必要な環境
+
+- Node.js 24.15.0以上
+- Yarn 1.22.19
+
+Node.jsの指定は`.node-version`と`.tool-versions`に記載しています。
+
+## セットアップ
 
 ```bash
-# install dependencies
-$ yarn install
-
-# serve with hot reload at localhost:3000
-$ yarn dev
-
-# build for production and launch server
-$ yarn build
-$ yarn start
-
-# generate static project
-$ yarn generate
+yarn install --frozen-lockfile
+cp .env.example .env
+yarn dev
 ```
 
-For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
+開発サーバーは通常 `http://localhost:3000` で起動します。Google AnalyticsとGoogle AdSenseを使用しないローカル開発では、`.env`の値を空にできます。
 
-## Special Directories
+## コマンド
 
-You can create the following extra directories, some of which have special behaviors. Only `pages` is required; you can delete them if you don't want to use their functionality.
+```bash
+yarn dev        # 開発サーバー
+yarn lint       # ESLint
+yarn typecheck  # Vue / TypeScript型検査
+yarn test       # Vitest
+yarn build      # Node.js向け本番ビルド
+yarn generate   # 静的生成
+yarn start      # ビルド結果のプレビュー
+```
 
-### `assets`
+pull requestではinstall、lint、typecheck、test、buildがGitHub Actionsで実行されます。
 
-The assets directory contains your uncompiled assets such as Stylus or Sass files, images, or fonts.
+## 環境変数
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/assets).
+| 変数 | 用途 |
+| --- | --- |
+| `NUXT_PUBLIC_GOOGLE_ANALYTICS_ID` | Google Analyticsの測定ID。空の場合は無効 |
+| `NUXT_PUBLIC_GOOGLE_ADSENSE_ID` | Google AdSenseのパブリッシャーID。空の場合はスクリプトを読み込まない |
 
-### `components`
+## 構成
 
-The components directory contains your Vue.js components. Components make up the different parts of your page and can be reused and imported into your pages, layouts and even other components.
+- Nuxt 3 / Vue 3
+- Nuxt UI 3 / Tailwind CSS 4
+- VueUse
+- Vitest / Nuxt Test Utils
+- Vite PWA
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/components).
+ブラウザからの `/kanji-clustering-api/**` リクエストは、Nitroのプロキシを通じて外部の漢字クラスタリングAPIへ転送されます。
 
-### `layouts`
+## 移行状況
 
-Layouts are a great help when you want to change the look and feel of your Nuxt app, whether you want to include a sidebar or have distinct layouts for mobile and desktop.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/layouts).
-
-### `pages`
-
-This directory contains your application views and routes. Nuxt will read all the `*.vue` files inside this directory and setup Vue Router automatically.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/get-started/routing).
-
-### `plugins`
-
-The plugins directory contains JavaScript plugins that you want to run before instantiating the root Vue.js Application. This is the place to add Vue plugins and to inject functions or constants. Every time you need to use `Vue.use()`, you should create a file in `plugins/` and add its path to plugins in `nuxt.config.js`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/plugins).
-
-### `static`
-
-This directory contains your static files. Each file inside this directory is mapped to `/`.
-
-Example: `/static/robots.txt` is mapped as `/robots.txt`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/static).
-
-### `store`
-
-This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
+Vue 2 / Nuxt 2からの移行作業は、[GitHub Issue #7](https://github.com/yudukikun5120/Kanji-Clustering/issues/7) で追跡しています。
