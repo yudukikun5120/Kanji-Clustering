@@ -2,48 +2,42 @@ name: ci
 
 on:
   push:
-    branches:
-      - main
-      - master
+    branches: [master]
   pull_request:
-    branches:
-      - main
-      - master
+    branches: [master]
+
+permissions:
+  contents: read
 
 jobs:
-  ci:
-    runs-on: ${{ matrix.os }}
-
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-        node: [14]
+  quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
 
     steps:
-      - name: Checkout 🛎
-        uses: actions/checkout@master
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Setup node env 🏗
-        uses: actions/setup-node@v2.1.5
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node }}
-          check-latest: true
+          node-version: 24.2.0
+          cache: yarn
 
-      - name: Get yarn cache directory path 🛠
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
 
-      - name: Cache node_modules 📦
-        uses: actions/cache@v2.1.4
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
+      - name: Lint
+        run: yarn lint
 
-      - name: Install dependencies 👨🏻‍💻
-        run: yarn
+      - name: Typecheck
+        run: yarn typecheck
 
-      - name: Run tests 🧪
+      - name: Test
         run: yarn test
+
+      - name: Build
+        run: yarn build
+
+      - name: Generate static output
+        run: yarn generate
