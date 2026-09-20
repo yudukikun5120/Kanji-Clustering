@@ -4,7 +4,7 @@
 
 ## 必要な環境
 
-- Node.js 24.2.0以上
+- Node.js 24.15.0以上
 - Yarn 1.22.19
 
 Node.jsの指定は`.node-version`と`.tool-versions`に記載しています。
