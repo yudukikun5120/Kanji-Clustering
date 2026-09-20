@@ -17,7 +17,7 @@
     "test:watch": "vitest",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "typecheck": "nuxi typecheck"
+    "typecheck": "nuxt prepare && nuxi typecheck"
   },
   "dependencies": {
     "@nuxt/ui": "^3.1.3",
