@@ -36,7 +36,7 @@
     "typescript": "5.8.3",
     "vitest": "^3.2.7",
     "vue": "3.5.16",
-    "vue-tsc": "2.2.10"
+    "vue-tsc": "3.3.11"
   },
   "resolutions": {
     "**/@nuxt/test-utils": "3.23.0"

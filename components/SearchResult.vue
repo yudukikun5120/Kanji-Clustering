@@ -59,7 +59,7 @@ const debouncedCharacter = refDebounced(character, 250)
 const { data: affinities, pending, error } = await useFetch('/kanji-clustering-api/affinities', {
   query: computed(() => ({
     character: debouncedCharacter.value,
-    sets: 'jis_level_1+jis_level_2'
+    sets: 'jis_level_1 jis_level_2'
   })),
   transform: (data) => data?.affinities || [],
   server: false,

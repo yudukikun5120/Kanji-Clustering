@@ -1,10 +1,16 @@
 import { mountSuspended, registerEndpoint } from '@nuxt/test-utils/runtime'
 import { describe, expect, it, vi } from 'vitest'
+import { getQuery } from 'h3'
 import SearchResult from '~/components/SearchResult.vue'
 
-registerEndpoint('/kanji-clustering-api/affinities', () => ({
-  affinities: ['字', '宇']
-}))
+let requestedQuery
+
+registerEndpoint('/kanji-clustering-api/affinities', (event) => {
+  requestedQuery = getQuery(event)
+  return {
+    affinities: ['字', '宇']
+  }
+})
 
 describe('SearchResult', () => {
   it('URLで指定した漢字を初期値にしてAPI結果を表示する', async () => {
@@ -16,6 +22,10 @@ describe('SearchResult', () => {
     await vi.waitFor(() => {
       expect(wrapper.text()).toContain('字')
       expect(wrapper.text()).toContain('宇')
+    })
+    expect(requestedQuery).toMatchObject({
+      character: '学',
+      sets: 'jis_level_1 jis_level_2'
     })
   })
 })
