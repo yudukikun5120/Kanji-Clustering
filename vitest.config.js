@@ -8,6 +8,11 @@ export default defineVitestConfig({
         domEnvironment: 'happy-dom'
       }
     },
-    include: ['test/**/*.spec.js']
+    include: ['test/**/*.spec.js'],
+    coverage: {
+      provider: 'v8',
+      reporter: ['text', 'lcov'],
+      include: ['components/**/*.vue', 'pages/**/*.vue', 'app.vue']
+    }
   }
 })

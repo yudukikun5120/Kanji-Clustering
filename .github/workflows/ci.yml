@@ -33,11 +33,44 @@ jobs:
       - name: Typecheck
         run: yarn typecheck
 
-      - name: Test
-        run: yarn test
+      - name: Test with coverage
+        run: yarn test:coverage
+
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage
+          path: coverage/
 
       - name: Build
         run: yarn build
 
       - name: Generate static output
         run: yarn generate
+
+  visual:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    # Fork PRs do not receive secrets, so Percy cannot run for them.
+    if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24.15.0
+          cache: yarn
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Generate static output
+        run: yarn generate
+
+      - name: Percy visual snapshots
+        run: yarn percy
+        env:
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}

@@ -27,6 +27,12 @@ yarn generate
 # Run tests
 yarn test
 
+# Run tests with coverage (text + lcov in coverage/)
+yarn test:coverage
+
+# Visual snapshots with Percy (needs PERCY_TOKEN and `yarn generate` first)
+yarn percy
+
 # Lint and typecheck
 yarn lint
 yarn typecheck
@@ -36,7 +42,8 @@ yarn typecheck
 
 - **Frontend**: Nuxt 3 + Vue 3 + TypeScript
 - **Styling**: Nuxt UI 3 + Tailwind CSS 4
-- **Testing**: Vitest with Nuxt Test Utils
+- **Testing**: Vitest with Nuxt Test Utils (coverage via @vitest/coverage-v8)
+- **Visual testing**: Percy (`.percy.yml`, snapshots `.output/public`; CI `visual` job needs the `PERCY_TOKEN` secret)
 - **API Proxy**: External API at `kanji-clustering.herokuapp.com` proxied through `/kanji-clustering-api/`
 - **Analytics**: Google Analytics via nuxt-gtag
 - **PWA**: Enabled with @vite-pwa/nuxt
