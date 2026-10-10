@@ -3,4 +3,5 @@ snapshot:
   widths: [375, 1280]
 static:
   base-url: /
-  include: ['index.html']
+  # Snapshot names are URL paths (clean URLs), not file names.
+  exclude: ['/200', '/404']
