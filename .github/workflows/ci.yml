@@ -51,8 +51,10 @@ jobs:
   visual:
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    # Fork PRs do not receive secrets, so Percy cannot run for them.
-    if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository
+    # Fork PRs and Dependabot runs do not receive Actions secrets, so Percy cannot run for them.
+    if: >-
+      github.actor != 'dependabot[bot]' &&
+      (github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository)
 
     steps:
       - name: Checkout

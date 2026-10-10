@@ -1,6 +1,11 @@
 version: 2
 snapshot:
   widths: [375, 1280]
+  # The search input is prefilled with a random kanji on every build and the
+  # static server has no clustering API, so hide the volatile parts.
+  percy-css: |
+    input[type="search"] { color: transparent !important; }
+    #affinities, p.text-red-600 { visibility: hidden !important; }
 static:
   base-url: /
   # Snapshot names are URL paths (clean URLs), not file names.
