@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a Nuxt 3 application called "漢字凝集解析" (Kanji Clustering Analysis) that detects similar kanji characters using k-means clustering method. The app allows users to input a kanji character and find similar characters through cluster analysis of 6355 JIS Level 1 and 2 kanji characters.
+This is a Nuxt 4 application called "漢字凝集解析" (Kanji Clustering Analysis) that detects similar kanji characters using k-means clustering method. The app allows users to input a kanji character and find similar characters through cluster analysis of 6355 JIS Level 1 and 2 kanji characters.
 
 ## Development Commands
 
@@ -34,7 +34,7 @@ yarn typecheck
 
 ## Architecture
 
-- **Frontend**: Nuxt 3 + Vue 3 + TypeScript
+- **Frontend**: Nuxt 4 + Vue 3 + TypeScript
 - **Styling**: Nuxt UI 3 + Tailwind CSS 4
 - **Testing**: Vitest with Nuxt Test Utils
 - **API Proxy**: External API at `kanji-clustering.herokuapp.com` proxied through `/kanji-clustering-api/`
@@ -43,10 +43,10 @@ yarn typecheck
 
 ## Key Components
 
-- `AppSidebar.vue`: Main information panel with project description and input tutorial
-- `SearchResult.vue`: Handles kanji input and displays clustering results
-- `KanjiCard.vue`: Individual kanji result display component
-- `AppTutorial.vue`: Usage instructions modal
+- `app/components/AppSidebar.vue`: Main information panel with project description and input tutorial
+- `app/components/SearchResult.vue`: Handles kanji input and displays clustering results
+- `app/components/KanjiCard.vue`: Individual kanji result display component
+- `app/components/AppTutorial.vue`: Usage instructions modal
 
 ## API Integration
 
