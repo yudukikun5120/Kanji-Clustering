@@ -72,7 +72,13 @@ jobs:
       - name: Generate static output
         run: yarn generate
 
+      # Percy exits 0 when the token is missing, which would look like a pass.
       - name: Percy visual snapshots
-        run: yarn percy
+        run: |
+          if [ -z "$PERCY_TOKEN" ]; then
+            echo "::warning title=Percy skipped::PERCY_TOKEN secret is not set; no visual snapshots were uploaded."
+            exit 0
+          fi
+          yarn percy
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}

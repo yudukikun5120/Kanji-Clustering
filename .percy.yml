@@ -8,5 +8,5 @@ snapshot:
     #affinities, p.text-red-600 { visibility: hidden !important; }
 static:
   base-url: /
-  # Snapshot names are URL paths (clean URLs), not file names.
-  exclude: ['/200', '/404']
+  # Snapshot names are the served file paths, with a leading slash.
+  exclude: ['/200.html', '/404.html']
