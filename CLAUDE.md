@@ -41,7 +41,7 @@ yarn typecheck
 ## Architecture
 
 - **Frontend**: Nuxt 4 + Vue 3 + TypeScript
-- **Styling**: Nuxt UI 3 + Tailwind CSS 4
+- **Styling**: Nuxt UI 4 + Tailwind CSS 4
 - **Testing**: Vitest with Nuxt Test Utils (coverage via @vitest/coverage-v8)
 - **Visual testing**: Percy (`.percy.yml`, snapshots `.output/public`, with the clustering API mocked by `percy/affinities.json`; CI `visual` job needs the `PERCY_TOKEN` secret)
 - **API Proxy**: External API at `kanji-clustering.herokuapp.com` proxied through `/kanji-clustering-api/`

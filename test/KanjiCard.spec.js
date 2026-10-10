@@ -10,9 +10,14 @@ describe('KanjiCard', () => {
   beforeEach(() => {
     mocks.copy.mockReset()
     mocks.copy.mockResolvedValue(undefined)
+    vi.stubGlobal('ClipboardItem', class {
+      constructor(data) {
+        this.data = data
+      }
+    })
     Object.defineProperty(navigator, 'clipboard', {
       configurable: true,
-      value: { writeText: mocks.copy }
+      value: { write: mocks.copy }
     })
   })
 
@@ -32,6 +37,8 @@ describe('KanjiCard', () => {
 
     await wrapper.get('.relative').trigger('click')
 
-    expect(mocks.copy).toHaveBeenCalledWith('字')
+    expect(mocks.copy).toHaveBeenCalledTimes(1)
+    const [[item]] = mocks.copy.mock.calls[0]
+    expect(item.data['text/plain']).toBe('字')
   })
 })
