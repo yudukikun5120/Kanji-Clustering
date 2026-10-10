@@ -1,6 +1,6 @@
 # 漢字凝集解析
 
-入力した漢字に類似する漢字を、k-meansクラスタリングの結果から検索するNuxt 3アプリケーションです。JIS第1水準・第2水準の6355字種を対象にしています。
+入力した漢字に類似する漢字を、k-meansクラスタリングの結果から検索するNuxt 4アプリケーションです。JIS第1水準・第2水準の6355字種を対象にしています。
 
 ## 必要な環境
 
@@ -42,7 +42,7 @@ pull requestではinstall、lint、typecheck、test、buildがGitHub Actionsで�
 
 ## 構成
 
-- Nuxt 3 / Vue 3
+- Nuxt 4 / Vue 3
 - Nuxt UI 3 / Tailwind CSS 4
 - VueUse
 - Vitest / Nuxt Test Utils
