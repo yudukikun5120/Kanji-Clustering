@@ -16,7 +16,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
-    "percy": "percy snapshot .output/public",
+    "percy": "mkdir -p .output/public/__percy__ && cp percy/affinities.json .output/public/__percy__/ && percy snapshot .output/public",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "typecheck": "nuxt prepare && nuxi typecheck"

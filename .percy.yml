@@ -1,12 +1,17 @@
 version: 2
 snapshot:
   widths: [375, 1280]
-  # The search input is prefilled with a random kanji on every build and the
-  # static server has no clustering API, so hide the volatile parts.
+  # The search input is prefilled with a random kanji on every build, so hide it.
   percy-css: |
     input[type="search"] { color: transparent !important; }
-    #affinities, p.text-red-600 { visibility: hidden !important; }
 static:
   base-url: /
+  options:
+    # Wait for the (mocked) clustering results before capturing.
+    wait-for-selector: '#affinities > div'
+  # The static server has no clustering API; serve a fixed response instead.
+  # `yarn percy` copies percy/affinities.json to .output/public/__percy__/.
+  rewrites:
+    /kanji-clustering-api/affinities: /__percy__/affinities.json
   # Snapshot names are the served file paths, with a leading slash.
   exclude: ['/200.html', '/404.html']
