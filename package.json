@@ -25,7 +25,7 @@
     "@nuxt/ui": "^4.12.0",
     "@vite-pwa/nuxt": "^1.1.1",
     "@vueuse/nuxt": "^15.0.0",
-    "nuxt": "4.6.2",
+    "nuxt": "4.6.3",
     "nuxt-gtag": "5.0.0"
   },
   "devDependencies": {
@@ -41,6 +41,6 @@
     "typescript": "npm:@typescript/typescript6@^6.0.2",
     "vitest": "^5.0.5",
     "vue": "3.5.44",
-    "vue-tsc": "3.3.13"
+    "vue-tsc": "3.3.14"
   }
 }
